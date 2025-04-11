@@ -19,7 +19,7 @@ Kuna õpetaja GitHubi osa jääb külge, siis Visual Code'is Terminalis anna kä
 ```
 git remote remove origin
 ```
-sest õpetaja githubi ilma kutseta lisada ei, saa, selle asemel peab olmea teie enda oma.
+sest õpetaja githubi ilma kutseta lisada ei saa, selle asemel peab olmea teie enda oma. Sellega kaob ära teil Source Control juures värviline pilve ikoon aga sinine **main** jääb alles, mis on lokaalne git.
 
 # Tegija tegemised
 
