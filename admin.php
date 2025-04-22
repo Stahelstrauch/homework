@@ -4,17 +4,18 @@ if ($_COOKIE["admin_auth"] !== "true") {
     exit;
 }
 
+$sql = "SELECT *, DATE_FORMAT(date, '%d.%m.%Y') as date_time from feedback order by date desc";
+$data = $db->dbGetArray($sql);
+$db->show($data);
 // CSV lugemine
-$rows = [];
-if (file_exists("feedback.csv")) {
-    $lines = file("feedback.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($lines as $line) {
-        $fields = explode(";", $line);
-        if (count($fields) >= 4) {
-            $rows[] = $fields;
-        }
-    }
-}
+// $rows = [];
+// if (file_exists("feedback.csv")) {
+    // $lines = file("feedback.csv", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    // foreach ($lines as $line) {
+        // $fields = explode(";", $line);
+        // if (count($fields) >= 4) {
+            //$rows[] = $fields;
+        
 ?>
 <!DOCTYPE html>
 <html lang="et">
