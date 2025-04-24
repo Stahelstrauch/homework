@@ -40,4 +40,5 @@ sest õpetaja githubi ilma kutseta lisada ei saa, selle asemel peab olmea teie e
 * login failis, kui parool on õige siis algab sessioon, muidu ütleb vale parool.
 * logout failis ühendus katkestatakse.
 * admin faili sisu kaitsesin sessiooniga, seal saab toimetada ainult siis kui audentimine on tehtud.
+* Lisasin sisselogimise osa alla lingi kust saab tagasi avalehele, igaksjuhuks kui parooli ei tea, siis saab vähemalt tagasi liikuda. 
 
