@@ -1,11 +1,12 @@
 <?php
+
 $correct_password = "admin123";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     if ($password === $correct_password) {
         setcookie("admin_auth", "true", time() + 600, "/"); // kehtib 5 minutit
-        header("Location: admin.php");
+        header("Location: index.php?page=admin&key=admin123");
         exit;
     } else {
         $error = "Vale parool.";

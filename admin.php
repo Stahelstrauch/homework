@@ -1,12 +1,25 @@
 <?php
+
 if ($_COOKIE["admin_auth"] !== "true") {
     header("Location: login.php");
     exit;
 }
+if(isset($_GET['sid']) && !empty($_GET['sid']) && is_numeric($_GET['sid']) && isset($_GET['delete'])) {
+    $id = (int)$_GET['sid'];
+    $update = $_GET['delete'];
+    $sql = "DELETE FROM feedback WHERE id = $id"; //Kirje kustutamine
+    if($db->dbQuery($sql)) {
+        echo "Tagasiside on edukalt kustutatud!";
+    }else {
+        echo "Midagi läks kustutamisega valesti.";
+    }
+    header("Location: index.php?page=admin&key=123");
+    exit;
+}
 
-$sql = "SELECT *, DATE_FORMAT(date, '%d.%m.%Y') as date_time from feedback order by date desc";
+$sql = "SELECT *, DATE_FORMAT(date, '%d.%m.%Y %H:%i:%s') as date_time from feedback order by date desc";
 $data = $db->dbGetArray($sql);
-$db->show($data);
+// $db->show($data);
 // CSV lugemine
 // $rows = [];
 // if (file_exists("feedback.csv")) {
@@ -15,6 +28,8 @@ $db->show($data);
         // $fields = explode(";", $line);
         // if (count($fields) >= 4) {
             //$rows[] = $fields;
+
+
         
 ?>
 <!DOCTYPE html>
@@ -22,6 +37,7 @@ $db->show($data);
 <head>
     <meta charset="UTF-8">
     <title>Tagasiside haldus</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -33,7 +49,10 @@ $db->show($data);
             <a href="index.php" class="btn btn-outline-success me-1">Avaleht</a>
             <a href="logout.php" class="btn btn-outline-danger">Logi välja</a>
         </div>
-        <?php if (count($rows) > 0): ?>
+        <?php
+        if($data !== false) {
+            ?>
+        
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
                     <tr>
@@ -41,21 +60,30 @@ $db->show($data);
                         <th>Nimi</th>
                         <th>E-post</th>
                         <th>Sõnum</th>
+                        <th>Kustuta</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($rows as $r): ?>
+                    <?php 
+                for($x = 0; $x < count($data); $x++) { 
+            ?>
                         <tr>
-                            <?php foreach ($r as $col): ?>
-                                <td><?= htmlspecialchars($col) ?></td>
-                            <?php endforeach; ?>
+                            <td><?= $data[$x]['date_time'];?></td>
+                            <td><?= $data[$x]['name']; ?></td>
+                            <td><?= $data[$x]['email'];  ?></td>
+                            <td><?= $data[$x]['message'];  ?></td>
+                            <td class= text-center><a href="?page=admin&sid=<?= $data[$x]['id'] ?>&delete=true" onclick="return confirm('Kas oled kindel, et soovid kustutada?');">
+                            <i class="fa-solid fa-trash text-danger"></i></a></td>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php else: ?>
-            <p class="text-muted">Tagasisidet ei ole veel saabunud.</p>
-        <?php endif; ?>
+            <?php
+        }
+        ?>
+        </tbody>
+        </table>
+        <?php 
+    } else  {
+             echo "<p>Tagasisidet ei ole veel saabunud.</p>";
+             }
+            ?>
     </div>
-</body>
-</html>
+

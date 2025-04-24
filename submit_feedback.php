@@ -1,5 +1,5 @@
 <?php
-
+// include "index.php";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $db->show($_POST); // Näita vormi andmeid
     $name = trim($_POST["name"] ?? '');
@@ -31,6 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
    
     }
 } else {
-    header("Location: contact.html");
+    header("Location: index.php?page=contact");
     exit;
 }
