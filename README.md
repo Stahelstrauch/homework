@@ -23,21 +23,21 @@ sest õpetaja githubi ilma kutseta lisada ei saa, selle asemel peab olmea teie e
 
 # Tegija tegemised
 
-*Lõin phpadminis andmebaasi feedback_system.
-*Lõin tabeli 5 veeruga.
-*Lõin VC faili settings.php.
-*Lõin faili settings_ecample.php.
-*Lõin mysqli.php faili.
-*Täiendasi index.php faili andmebaasi osaga (include:settings, mysqli, class DB).
-*Lisaks lisasin submit_feedback.php lubatud failide listi.
-*Submit_feedback.php faili täiendasin. Lisasin sql lause, et kirjeid tabelisse lisada.
-*Selleks, et submit_feedback leht ja admin leht tunneksid ära selle $db muutuja, tuli paaris kohas ümber teha Locationi suunamised, enne suunas otse, mina panin, et suunaks läbi index.php lehe.
-*Admin failis peitsin ära faili lugemise osa ja asendasin selle andmebaasi lugemise osa sql-ga. Kuupäeva vormindamise tegin ära sql lause sees ja sorteerisin kuupäeva järgi nii, et värskemad tagasisided oleks eespool.
-*Tabeli body osas tegin forloopi, mille sisse panin siis need andmeread mis pidi täitma. Forloop käib nii palju kordi kui andmeid on.
-*Kustutamise jaoks tegin tabelis juurde lahtri pealkirjaga kustuta, trashcan pilt iga rea lõpus. Kui selle ikooni peale hiirega liikuda, siis näeb ära ka id href lingi sees.
-*Admin faili ülesosasse kohe peale cookie osa tegin kustutamise osa. Kõigepealt kontrollib, seejärel määrab ära id ja sql lausega kustutab kirje tabelist, mis vastab sellele id-le.
-*Sessiooni tegemiseks:
-*login failis, kui parool on õige siis algab sessioon, muidu ütleb vale parool.
-*logout failis ühendus katkestatakse.
-*admin faili sisu kaitsesin sessiooniga, seal saab toimetada ainult siis kui audentimine on tehtud.
+* Lõin phpadminis andmebaasi feedback_system.
+* Lõin tabeli 5 veeruga.
+* Lõin VC faili settings.php.
+* Lõin faili settings_ecample.php.
+* Lõin mysqli.php faili.
+* Täiendasi index.php faili andmebaasi osaga (include:settings, mysqli, class DB).
+* Lisaks lisasin submit_feedback.php lubatud failide listi.
+* Submit_feedback.php faili täiendasin. Lisasin sql lause, et kirjeid tabelisse lisada.
+* Selleks, et submit_feedback leht ja admin leht tunneksid ära selle $db muutuja, tuli paaris kohas ümber teha Locationi suunamised, enne suunas otse, mina panin, et suunaks läbi index.php lehe.
+* Admin failis peitsin ära faili lugemise osa ja asendasin selle andmebaasi lugemise osa sql-ga. Kuupäeva vormindamise tegin ära sql lause sees ja sorteerisin kuupäeva järgi nii, et värskemad tagasisided oleks eespool.
+* Tabeli body osas tegin forloopi, mille sisse panin siis need andmeread mis pidi täitma. Forloop käib nii palju kordi kui andmeid on.
+* Kustutamise jaoks tegin tabelis juurde lahtri pealkirjaga kustuta, trashcan pilt iga rea lõpus. Kui selle ikooni peale hiirega liikuda, siis näeb ära ka id href lingi sees.
+* Admin faili ülesosasse kohe peale cookie osa tegin kustutamise osa. Kõigepealt kontrollib, seejärel määrab ära id ja sql lausega kustutab kirje tabelist, mis vastab sellele id-le.
+* Sessiooni tegemiseks:
+* login failis, kui parool on õige siis algab sessioon, muidu ütleb vale parool.
+* logout failis ühendus katkestatakse.
+* admin faili sisu kaitsesin sessiooniga, seal saab toimetada ainult siis kui audentimine on tehtud.
 
