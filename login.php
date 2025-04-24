@@ -1,12 +1,13 @@
 <?php
 
+session_start();
+
 $correct_password = "admin123";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $password = $_POST['password'] ?? '';
-    if ($password === $correct_password) {
-        setcookie("admin_auth", "true", time() + 600, "/"); // kehtib 5 minutit
-        header("Location: index.php?page=admin&key=admin123");
+    if ($_POST["password"] === $correct_password) {
+        $_SESSION["admin_auth"] = true;
+        header("Location: index.php?page=admin");
         exit;
     } else {
         $error = "Vale parool.";
@@ -31,7 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="password" class="form-label">Parool</label>
                 <input type="password" name="password" id="password" class="form-control" required autofocus>
             </div>
-            <button type="submit" class="btn btn-primary">Logi sisse</button>
+            <button type="submit" class="btn btn-primary">Logi sisse</button><br>
+            <a href='index.php'>Tagasi avalehele</a>
         </form>
     </div>
 </body>

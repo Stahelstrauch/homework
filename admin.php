@@ -1,9 +1,12 @@
 <?php
 
-if ($_COOKIE["admin_auth"] !== "true") {
+session_start();
+
+if (!isset($_SESSION["admin_auth"]) || $_SESSION["admin_auth"] !== true) {
     header("Location: login.php");
     exit;
 }
+
 if(isset($_GET['sid']) && !empty($_GET['sid']) && is_numeric($_GET['sid']) && isset($_GET['delete'])) {
     $id = (int)$_GET['sid'];
     $update = $_GET['delete'];
@@ -13,7 +16,7 @@ if(isset($_GET['sid']) && !empty($_GET['sid']) && is_numeric($_GET['sid']) && is
     }else {
         echo "Midagi läks kustutamisega valesti.";
     }
-    header("Location: index.php?page=admin&key=123");
+    header("Location: index.php?page=admin");
     exit;
 }
 

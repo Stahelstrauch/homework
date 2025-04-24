@@ -1,7 +1,6 @@
 <?php
-// include "index.php";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $db->show($_POST); // Näita vormi andmeid
+    // $db->show($_POST); // Näita vormi andmeid
     $name = trim($_POST["name"] ?? '');
     $email = trim($_POST["email"] ?? '');
     $message = trim($_POST["message"] ?? '');

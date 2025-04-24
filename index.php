@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $page === 'submit_feedback') {
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link<?= $page === 'home' ? ' active' : '' ?>" href="index.php?page=home">Avaleht</a></li>
         <li class="nav-item"><a class="nav-link<?= $page === 'contact' ? ' active' : '' ?>" href="index.php?page=contact">Kontakt</a></li>
-        <li class="nav-item"><a class="nav-link<?= $page === 'admin' ? ' active' : '' ?>" href="index.php?page=admin&key=admin123">Admin</a></li>
+        <li class="nav-item"><a class="nav-link<?= $page === 'admin' ? ' active' : '' ?>" href="index.php?page=admin">Admin</a></li>
       </ul>
     </div>
   </div>

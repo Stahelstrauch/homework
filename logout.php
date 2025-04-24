@@ -1,4 +1,6 @@
 <?php
-setcookie("admin_auth", "", time() - 3600, "/"); // kustutab küpsise
-header("Location: index.php");
+session_start();
+session_unset();
+session_destroy();
+header("Location: login.php");
 exit;
