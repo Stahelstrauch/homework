@@ -23,7 +23,6 @@ sest õpetaja githubi ilma kutseta lisada ei saa, selle asemel peab olmea teie e
 
 # Tegija tegemised
 
-Siia palun tee loetelu kõikidest asjadest mida sa tegid. Järjekord pole oluline.
 *Lõin phpadminis andmebaasi feedback_system.
 *Lõin tabeli 5 veeruga.
 *Lõin VC faili settings.php.
