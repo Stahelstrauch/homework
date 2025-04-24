@@ -59,11 +59,11 @@ $data = $db->dbGetArray($sql);
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th>Aeg</th>
-                        <th>Nimi</th>
-                        <th>E-post</th>
-                        <th>Sõnum</th>
-                        <th>Kustuta</th>
+                        <th class="text-center">Aeg</th>
+                        <th class="text-center">Nimi</th>
+                        <th class="text-center">E-post</th>
+                        <th class="text-center">Sõnum</th>
+                        <th class="text-center">Kustuta</th>
                     </tr>
                 </thead>
                 <tbody>
